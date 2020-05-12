@@ -13,8 +13,15 @@ public class Main {
 		System.out.println("Main START");
 		Starship starship = container.select(Starship.class).get();
 		starship.start();
+		System.out.println("sleep...");
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			System.out.println("sleep interrupted");
+		}
 		System.out.println("Main STOP");
 		
+		System.out.println("Weld container shutdown...");
 		container.shutdown();
 	}
 
